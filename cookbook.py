@@ -1,5 +1,5 @@
 def get_cookbook(file):
-     book = open('cookbook.txt).read().split('\n\n')
+     book = open('cookbook.txt').read().split('\n\n')
      cook_book = {}
      for i in book:
           i = i.split('\n')

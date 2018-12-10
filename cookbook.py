@@ -1,14 +1,14 @@
-book = open('cookbook.txt').read().split('\n\n')
-cook_book = {}
-for i in book:
-     i = i.split('\n')
-     cook_book[i[0]] = []
-     for j in i[2:]:
-          j = j.split(' | ')
-          if not j[0]: break
-          cook_book[i[0]].append({'ingridient_name': j[0], 'quantity': int(j[1]), 'measure': j[2]})
-
-print(cook_book)
+def get_cookbook(file):
+     book = open('cookbook.txt).read().split('\n\n')
+     cook_book = {}
+     for i in book:
+          i = i.split('\n')
+          cook_book[i[0]] = []
+          for j in i[2:]:
+               j = j.split(' | ')
+               if not j[0]: break
+               cook_book[i[0]].append({'ingridient_name': j[0], 'quantity': int(j[1]), 'measure': j[2]})
+               return cook_book
 
 
 def get_shop_list_by_dishes(dishes, person_count):

@@ -1,22 +1,22 @@
 def get_cookbook(file):
      book = open('cookbook.txt').read().split('\n\n')
      cook_book = {}
-     for i in book:
-          i = i.split('\n')
-          cook_book[i[0]] = []
-          for j in i[2:]:
-               j = j.split(' | ')
-               if not j[0]: break
-               cook_book[i[0]].append({'ingridient_name': j[0], 'quantity': int(j[1]), 'measure': j[2]})
+     for dish in book:
+          dish = dish.split('\n')
+          cook_book[dish[0]] = []
+          for ingredients in dish[2:]:
+               ingredients = ingredients.split(' | ')
+               if not ingredients[0]: break
+               cook_book[dish[0]].append({'ingridient_name': ingredients[0], 'quantity': int(ingredients[1]), 'measure': ingredients[2]})
                return cook_book
 def get_shop_list_by_dishes(dishes, person_count):
      out = {}
-     for i in dishes:
+     for dish in dishes:
           try:
-               for i in cook_book[i]:
-                    out[i['ingridient_name']] = {}
-                    out[i['ingridient_name']]['measure'] = i['measure']
-                    out[i['ingridient_name']]['quantity'] = i['quantity'] *2
+               for dish in cook_book[dish]:
+                    out[dish['ingridient_name']] = {}
+                    out[dish['ingridient_name']]['measure'] = dish['measure']
+                    out[dish['ingridient_name']]['quantity'] = dish['quantity'] *2
           except KeyError:
                print('Блюда не существует')
           return(out)
